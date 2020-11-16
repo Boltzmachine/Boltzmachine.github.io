@@ -214,7 +214,7 @@
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
           
-            <a href="/2020/11/16/StyleGAN/" class="post-title-link" itemprop="url">StyleGAN</a>
+            <a href="/2020/11/16/StyleGAN/" class="post-title-link" itemprop="url">StyleGAN & StyleGAN2 论文解读</a>
         </h2>
 
         <div class="post-meta-container">
@@ -226,7 +226,7 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2020-11-16 00:16:12 / Modified: 00:52:26" itemprop="dateCreated datePublished" datetime="2020-11-16T00:16:12+08:00">2020-11-16</time>
+      <time title="Created: 2020-11-16 00:16:12 / Modified: 10:35:03" itemprop="dateCreated datePublished" datetime="2020-11-16T00:16:12+08:00">2020-11-16</time>
     </span>
 
   
@@ -248,15 +248,11 @@
 </ol>
 <p>StyleGAN模型是由不同部分组成的，理解了每个部分的功能，就可以理解整个模型。</p>
 <p>StyleGAN的整体结构如下图所示，分为左边的Mapping Network和右边的Synthesis Network。</p>
-<figure>
-<img src="/.com//image-20201113224341176.png" alt="image-20201113224341176"><figcaption aria-hidden="true">image-20201113224341176</figcaption>
-</figure>
+<img src="/2020/11/16/StyleGAN/image-20201113224341176.png" class="" title="Fig 1. 整体结构">
 <p>首先值得一提的是，StyleGAN的训练是和Progressive GAN一致的，不过这并不是StyleGAN的重点，所以我不打算在这篇文章里说，如果有不清楚Progressive growing的朋友可以去看一看那篇paper。</p>
 <h2 id="mapping-network">1. Mapping Network</h2>
 <p>模型左半部分的结构，它的功能非常简单，就是把<span class="math inline">\(\boldsymbol{z} \in \mathcal{Z}\)</span>映射成一个<span class="math inline">\(\boldsymbol{w}\in \mathcal{W}\)</span>。<span class="math inline">\(\mathcal{Z}\)</span>是我们传统的一个隐空间，它通常采样自高斯分布或均匀分布。<span class="math inline">\(\mathcal{W}\)</span>是经过特征解耦的隐空间。</p>
-<figure>
-<img src="/Users/qiuweikang/Library/Application%20Support/typora-user-images/image-20201113225133475.png" alt="image-20201113225133475"><figcaption aria-hidden="true">image-20201113225133475</figcaption>
-</figure>
+<img src="/2020/11/16/StyleGAN/image-20201113225133475.png" class="" title="Fig 2. 隐空间">
 <p>用原文中的图来说明。这里颜色代表着输出，实线代表着某一特征为常量的线。例如，在（a）中，我们用横线代表一个人的长发长度（越往上越长），竖线代表一个人男子气概的程度（越往左越man）。那么左下角粉红色的区域就可以代表猛男，右上角黄色区域可以代表仙女。而左上角的区域（长发飘飘的猛男）通常来讲是不存在的，因此是空的。</p>
 <p>那么，在传统的以<span class="math inline">\(\boldsymbol{z}\)</span>作为隐变量的GAN（b）中，由于<span class="math inline">\(\boldsymbol{z}\)</span>来自于一个对称的分布，所以它是一个圆形。而为了填补（a）中左上角的空缺，特征的分布必将被扭曲，这就造成了当仅仅改变<span class="math inline">\(\boldsymbol{z}\)</span>的某一维度时，输出图像会有多个特征同时发生变动，设就是entanglement。而StyleGAN中Mapping Network的作用，就是将图（b）映射成（c）。</p>
 <p>至于为什么Mapping Network自动能学到解耦的功能，文章中说他们认为generator偏好于基于解耦的特征去生成。</p>
@@ -282,16 +278,12 @@
 <p>在StyleGAN中，<span class="math inline">\(\mu\)</span>和<span class="math inline">\(\sigma\)</span>变成了<span class="math inline">\(\mathbf{y}_{s, i}\)</span>和<span class="math inline">\(\mathbf{y}_{b, i}\)</span>，是从<span class="math inline">\(\boldsymbol{w}\)</span>中计算得到的（通过一个可学习的神经网络），代表了给这层注入基于<span class="math inline">\(\boldsymbol{w}\)</span>的风格。</p>
 <h3 id="style-mixing">2.2 Style mixing</h3>
 <p>在一次生成过程中，不仅仅是用一个<span class="math inline">\(\boldsymbol{w}\)</span>，而是sample出两个<span class="math inline">\(\boldsymbol{z_1},\boldsymbol{z_2}\)</span>，从而得到两个<span class="math inline">\(\boldsymbol{w_1},\boldsymbol{w_2}\)</span>。在生成网络的前几层喂<span class="math inline">\(\boldsymbol{w_1}\)</span>，后几层喂<span class="math inline">\(\boldsymbol{w_2}\)</span>，这样得到的图片就是纯<span class="math inline">\(\boldsymbol{w_1}\)</span>和纯<span class="math inline">\(\boldsymbol{w_2}\)</span>的混合。</p>
-<figure>
-<img src="/Users/qiuweikang/Library/Application%20Support/typora-user-images/image-20201114010139065.png" alt="image-20201114010139065"><figcaption aria-hidden="true">image-20201114010139065</figcaption>
-</figure>
+<img src="/2020/11/16/StyleGAN/image-20201114010139065.png" class="" title="Fig 3. Style mixing">
 <p>纵轴代表<span class="math inline">\(\boldsymbol{w_1}\)</span>，横轴代表<span class="math inline">\(\boldsymbol{w_2}\)</span>。越靠上的图片代表<span class="math inline">\(\boldsymbol{w}\)</span>更早切换。可以看到，在更早的层切换会改变粗粒度（coarse）的特征（如脸型、姿势等），在更晚的层切换会改变细粒度（fine）的特征（如颜色和一些微结构等）。</p>
 <p>你可能会说这跟interpolation有什么区别，事实上，作者称它为<em>mixing regularization</em>，也就是一种正则化。它是为了将style与style之间解耦，也就是每层负责不同的style。</p>
 <h3 id="stochastic-variation">2.3 Stochastic variation</h3>
 <p>图中的<span class="math inline">\(B\)</span>，在AdaIN之前加入，是在每层、每个像素点上加入独立的噪声，效果是可以产生一些本就随机的东西（例如头发的摆放、胡茬、雀斑、毛孔等）。</p>
-<figure>
-<img src="/Users/qiuweikang/Library/Application%20Support/typora-user-images/image-20201114012530990.png" alt="image-20201114012530990"><figcaption aria-hidden="true">image-20201114012530990</figcaption>
-</figure>
+<img src="/2020/11/16/StyleGAN/image-20201114012530990.png" class="" title="Fig 4. Stochastic variation">
 <p>（a）是在所有层中都加入噪声，（b）是无噪声，（c）是在后面的层加入噪声（细粒度），（d）是在前面的层加入噪声（粗粒度）。随机噪声改变了一些局部的特征，并且似乎生成的效果也更好了？比如无噪声的（b）这张图看着就很fake。</p>
 <p>我们可以看到，随机噪声是控制一些比较local的特征的，这和style所控制的全局特征是不同的。</p>
 <h2 id="disentanglement-studies">3. Disentanglement studies</h2>
@@ -306,16 +298,14 @@ l_{\mathcal{Z}}=\mathbb{E}\left[\frac{1}{\epsilon^{2}} d\left(G\left(\operatorna
 <p>对于<span class="math inline">\(\mathcal{W}\)</span>，直接用线性插值 <span class="math display">\[
 l_{\mathcal{W}}=\mathbb{E}\left[\frac{1}{\epsilon^{2}} d\left(g\left(\operatorname{lerp}\left(f\left(\mathbf{z}_{1}\right), f\left(\mathbf{z}_{2}\right) ; t\right)\right), g\left(\operatorname{lerp}\left(f\left(\mathbf{z}_{1}\right), f\left(\mathbf{z}_{2}\right) ; t+\epsilon\right)\right)\right)\right]
 \]</span> 这里用小写<span class="math inline">\(g\)</span>是因为没有包括Mapping Network。</p>
-<figure>
-<img src="/Users/qiuweikang/Library/Application%20Support/typora-user-images/image-20201114021608396.png" alt="image-20201114021608396"><figcaption aria-hidden="true">image-20201114021608396</figcaption>
-</figure>
+<img src="/2020/11/16/StyleGAN/image-20201114021608396.png" class="" title="Fig.5 解耦效果">
 <p>看B、D两行。</p>
 <p><strong>full</strong>就是我们前面公式所得到的结果，为什么<span class="math inline">\(\mathcal{W}\)</span>的分数比<span class="math inline">\(\mathcal{Z}\)</span>更坏？作者说这是因为你在两个样本之间插值可能会插出一些不存在的分布（就是左上角那个空缺），所以我们就在端点附近计算吧（<strong>end</strong>），这样的话<span class="math inline">\(l_{\mathcal{Z}}\)</span>应该不受影响而<span class="math inline">\(l_{\mathcal{W}}\)</span>下降明显，事实也确实如此。</p>
 <h3 id="linear-separability">4.2 Linear separability</h3>
-<p>作者认为如果一个隐空间被充分解耦的话，那么我们一定非常容易在隐空间上做分类，即容易被一些比较弱智的分类器（如linear SVM），这里没有骂linear SVM的意思，只是说它相对来说比较弱。</p>
+<p>作者认为如果一个隐空间被充分解耦的话，那么我们一定非常容易在隐空间上做分类，即容易被一些比较弱的分类器（如linear SVM）分类。</p>
 <p>那么为了衡量这个隐空间到底容不容易分，我们训练两个分类器，一个就是linear SVM，训练在隐空间上，另一个是训练在图片上的分类器。通过衡量这两个分类器结果的差异，比如用条件熵<span class="math inline">\(H(Y|X)\)</span>，我们就可以评价出这个隐空间容不容易分。这个分数也在上表当中。</p>
-<p>最后再贴一个StyleGAN的原video，我当时看完挺激动的，感觉真的有种操控GAN的感觉。</p>
-<video src="/Users/qiuweikang/Desktop/A Style-Based Generator Architecture for Generative Adversarial Networks-kSLJriaOumA.mp4">
+<p>最后再贴一个StyleGAN的原video，挺震撼的，强烈建议看完。</p>
+<video src="/video/A Style-Based Generator Architecture for Generative Adversarial Networks.mp4" controls>
 </video>
 <h2 id="stylegan2">StyleGAN2</h2>
 <p>TODO</p>
@@ -325,7 +315,6 @@ l_{\mathcal{W}}=\mathbb{E}\left[\frac{1}{\epsilon^{2}} d\left(g\left(\operatorna
 <li>Huang, X., &amp; Belongie, S. (2017). Arbitrary style transfer in real-time with adaptive instance normalization. In <em>Proceedings of the IEEE International Conference on Computer Vision</em> (pp. 1501-1510).</li>
 <li>GAN — StyleGAN &amp; StyleGAN2 (Hui, 2020): https://medium.com/<span class="citation" data-cites="jonathan_hui/gan-stylegan-stylegan2-479bdf256299">@jonathan_hui/gan-stylegan-stylegan2-479bdf256299</span></li>
 </ol>
-<p>s</p>
 
       
     </div>

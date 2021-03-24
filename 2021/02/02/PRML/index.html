@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 5.2.0">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.1/css/all.min.css">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/animate.css@3.1.1/animate.min.css">
+
+<script class="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"example.com","root":"/","images":"/images","scheme":"Muse","version":"8.0.2","exturl":false,"sidebar":{"position":"left","display":"always","padding":18,"offset":12},"copycode":false,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}};
+  </script>
+
+  <meta name="description" content="本人认为PRML中比较好的题目都在这里！欢迎一起交流补充！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PRML 精选题（持续更新中）">
+<meta property="og:url" content="http://example.com/2021/02/02/PRML/index.html">
+<meta property="og:site_name" content="Boltzmachine">
+<meta property="og:description" content="本人认为PRML中比较好的题目都在这里！欢迎一起交流补充！">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-02-02T05:21:48.000Z">
+<meta property="article:modified_time" content="2021-03-24T17:39:07.641Z">
+<meta property="article:author" content="Weikang Qiu">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="http://example.com/2021/02/02/PRML/">
+
+
+<script class="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>PRML 精选题（持续更新中） | Boltzmachine</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  body { margin-top: 2rem; }
+
+  .use-motion .menu-item,
+  .use-motion .sidebar,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header {
+    visibility: visible;
+  }
+
+  .use-motion .header,
+  .use-motion .site-brand-container .toggle,
+  .use-motion .footer { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle,
+  .use-motion .custom-logo-image {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line {
+    transform: scaleX(1);
+  }
+
+  .search-pop-overlay, .sidebar-nav { display: none; }
+  .sidebar-panel { display: block; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <h1 class="site-title">Boltzmachine</h1>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>About</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+        <li class="menu-item menu-item-sitemap">
+
+    <a href="/sitemap.xml" rel="section"><i class="fa fa-sitemap fa-fw"></i>Sitemap</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+        
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <section class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#chapter-1.-introduction"><span class="nav-number">1.</span> <span class="nav-text">Chapter 1. Introduction</span></a></li></ol></div>
+        </section>
+        <!--/noindex-->
+
+        <section class="site-overview-wrap sidebar-panel">
+          <div class="site-author site-overview-item animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Weikang Qiu</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap site-overview-item animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author site-overview-item animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Boltzmachine" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Boltzmachine" rel="noopener" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:boltzmachine@foxmail.com" title="E-Mail → mailto:boltzmachine@foxmail.com" rel="noopener" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/weikang-qiu-8303b9185" title="Linkedin → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;weikang-qiu-8303b9185" rel="noopener" target="_blank"><i class="fab fa-linkedin fa-fw"></i>Linkedin</a>
+      </span>
+  </div>
+
+
+
+        </section>
+      </div>
+    </div>
+  </aside>
+  <div class="sidebar-dimmer"></div>
+
+
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+    <div class="main-inner post posts-expand">
+      
+
+      
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="http://example.com/2021/02/02/PRML/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Weikang Qiu">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Boltzmachine">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PRML 精选题（持续更新中）
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-02-02 13:21:48" itemprop="dateCreated datePublished" datetime="2021-02-02T13:21:48+08:00">2021-02-02</time>
+    </span>
+      <span class="post-meta-item">
+        <span class="post-meta-item-icon">
+          <i class="far fa-calendar-check"></i>
+        </span>
+        <span class="post-meta-item-text">Edited on</span>
+        <time title="Modified: 2021-03-25 01:39:07" itemprop="dateModified" datetime="2021-03-25T01:39:07+08:00">2021-03-25</time>
+      </span>
+
+  
+    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="far fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">Views: </span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+      </div>
+      <div class="post-meta">
+    <span class="post-meta-item" title="Symbols count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Symbols count in article: </span>
+      <span>8.8k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>8 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>本人认为PRML中比较好的题目都在这里！欢迎一起交流补充！</p>
+<a id="more"></a>
+<h1 id="chapter-1.-introduction">Chapter 1. Introduction</h1>
+<p><strong>1.15</strong></p>
+<p><em>Problem</em></p>
+<p>In this exercise and the next, we explore how the number of independent parameters in a polynomial grows with the order <span class="math inline">\(M\)</span> of the polynomial and with the dimensionality <span class="math inline">\(D\)</span> of the input space. We start by writing down the <span class="math inline">\(M^{\mathrm{th}}\)</span> order term for a polynomial in <span class="math inline">\(D\)</span> dimensions in the form <span class="math display">\[
+\sum_{i_{1}=1}^{D} \sum_{i_{2}=1}^{D} \cdots \sum_{i_{M}=1}^{D} w_{i_{1} i_{2} \cdots i_{M}} x_{i_{1}} x_{i_{2}} \cdots x_{i_{M}}
+\]</span> The coefficients <span class="math inline">\(\omega_{i_1i_2\cdots i_M}\)</span> comprise <span class="math inline">\(D^M\)</span> elements, but the number of independent parameters is significantly fewer due to the many interchange symmetries of the factor <span class="math inline">\(x_{i_1}x_{i_2}\cdots x_{i_M}\)</span> . Begin by showing that the redundancy in the coefficients can be removed by rewriting this <span class="math inline">\(M^\mathrm{th}\)</span> order term in the form <span class="math display">\[
+\sum_{i_{1}=1}^{D} \sum_{i_{2}=1}^{i_{1}} \cdots \sum_{i_{M}=1}^{i_{M-1}} \widetilde{w}_{i_{1} i_{2} \cdots i_{M}} x_{i_{1}} x_{i_{2}} \cdots x_{i_{M}}
+\]</span> Note that the precise relationship between the <span class="math inline">\(\tilde{\omega}\)</span> coefficients and <span class="math inline">\(\omega\)</span> coefficients need not be made explicit. Use this result to show that the number of independent param- eters <span class="math inline">\(n(D,M)\)</span>, which appear at order <span class="math inline">\(M\)</span>, satisfies the following recursion relation <span class="math display">\[
+n(D, M)=\sum_{i=1}^{D} n(i, M-1)
+\]</span> Next use proof by induction to show that the following result holds <span class="math display">\[
+\sum_{i=1}^{D} \frac{(i+M-2) !}{(i-1) !(M-1) !}=\frac{(D+M-1) !}{(D-1) ! M !}
+\]</span> which can be done by first proving the result for <span class="math inline">\(D = 1\)</span> and arbitrary <span class="math inline">\(M\)</span> by making use of the result <span class="math inline">\(0! = 1\)</span>, then assuming it is correct for dimension <span class="math inline">\(D\)</span> and verifying that it is correct for dimension <span class="math inline">\(D + 1\)</span>. Finally, use the two previous results, together with proof by induction, to show <span class="math display">\[
+n(D, M)=\frac{(D+M-1) !}{(D-1) ! M !}
+\]</span> To do this, first show that the result is true for <span class="math inline">\(M = 2\)</span>, and any value of <span class="math inline">\(D \geq 1\)</span>, by comparison with the result of Exercise 1.14. Then make use of (1.135), together with (1.136), to show that, if the result holds at order <span class="math inline">\(M-1\)</span>, then it will also hold at order <span class="math inline">\(M\)</span></p>
+<p><em>Solution</em></p>
+<p>The redundancy in the coefficients in (1.133) arises from interchange symmetries between the indices <span class="math inline">\(i_{k} .\)</span> Such symmetries can therefore be removed by enforcing an ordering on the indices, as in <span class="math inline">\((1.134),\)</span> so that only one member in each group of equivalent configurations occurs in the summation.</p>
+<p>To derive (1.135) we note that the number of independent parameters <span class="math inline">\(n(D, M)\)</span> which appear at order <span class="math inline">\(M\)</span> can be written as <span class="math display">\[
+n(D, M)=\sum_{i_{1}=1}^{D} \sum_{i_{2}=1}^{i_{1}} \cdots \sum_{i_{M}=1}^{i_{M-1}} 1
+\]</span> which has <span class="math inline">\(M\)</span> terms. This can clearly also be written as <span class="math display">\[
+n(D, M)=\sum_{i_{1}=1}^{D}\left\{\sum_{i_{2}=1}^{i_{1}} \cdots \sum_{i_{M}=1}^{i_{M-1}} 1\right\}
+\]</span> where the term in braces has <span class="math inline">\(M-1\)</span> terms which, from (32), must equal <span class="math inline">\(n\left(i_{1}, M-1\right)\)</span>. Thus we can write <span class="math display">\[
+n(D, M)=\sum_{i_{1}=1}^{D} n\left(i_{1}, M-1\right)
+\]</span> which is equivalent to (1.135) To prove (1.136) we first set <span class="math inline">\(D=1\)</span> on both sides of the equation, and make use of <span class="math inline">\(0 !=1,\)</span> which gives the value 1 on both sides, thus showing the equation is valid for <span class="math inline">\(D=1 .\)</span> Now we assume that it is true for a specific value of dimensionality <span class="math inline">\(D\)</span> and then show that it must be true for dimensionality <span class="math inline">\(D+1\)</span>. Thus consider the left-hand side of (1.136) evaluated for <span class="math inline">\(D+1\)</span> which gives <span class="math display">\[
+\begin{aligned}
+\sum_{i=1}^{D+1} \frac{(i+M-2) !}{(i-1) !(M-1) !} &amp;=\frac{(D+M-1) !}{(D-1) ! M !}+\frac{(D+M-1) !}{D !(M-1) !} \\
+&amp;=\frac{(D+M-1) ! D+(D+M-1) ! M}{D ! M !} \\
+&amp;=\frac{(D+M) !}{D ! M !}
+\end{aligned}
+\]</span> which equals the right hand side of (1.136) for dimensionality <span class="math inline">\(D+1 .\)</span> Thus, by induction, (1.136) must hold true for all values of <span class="math inline">\(D .\)</span></p>
+<p>Finally we use induction to prove <span class="math inline">\((1.137) .\)</span> For <span class="math inline">\(M=2\)</span> we find obtain the standard result <span class="math inline">\(n(D, 2)=\frac{1}{2} D(D+1),\)</span> which is also proved in Exercise <span class="math inline">\(1.14 .\)</span> Now assume that (1.137) is correct for a specific order <span class="math inline">\(M-1\)</span> so that <span class="math display">\[
+n(D, M-1)=\frac{(D+M-2) !}{(D-1) !(M-1) !}
+\]</span> Substituting this into the right hand side of (1.135) we obtain <span class="math display">\[
+n(D, M)=\sum_{i=1}^{D} \frac{(i+M-2) !}{(i-1) !(M-1) !}
+\]</span> which, making use of <span class="math inline">\((1.136),\)</span> gives <span class="math display">\[
+n(D, M)=\frac{(D+M-1) !}{(D-1) ! M !}
+\]</span> and hence shows that (1.137) is true for polynomials of order <span class="math inline">\(M .\)</span> Thus by induction (1.137) must be true for all values of <span class="math inline">\(M\)</span>.</p>
+<p><strong>1.16</strong></p>
+<p><em>Problem</em></p>
+<p>In Exercise <span class="math inline">\(1.15,\)</span> we proved the result (1.135) for the number of independent parameters in the <span class="math inline">\(M^{\text {th }}\)</span> order term of a <span class="math inline">\(D\)</span> -dimensional polynomial. We now find an expression for the total number <span class="math inline">\(N(D, M)\)</span> of independent parameters in all of the terms up to and including the <span class="math inline">\(M^{\text {th }}\)</span> order. First show that <span class="math inline">\(N(D, M)\)</span> satisfies <span class="math display">\[
+N(D, M)=\sum_{m=0}^{M} n(D, m)
+\]</span> where <span class="math inline">\(n(D, m)\)</span> is the number of independent parameters in the term of order <span class="math inline">\(m .\)</span> Now make use of the result <span class="math inline">\((1.137),\)</span> together with proof by induction, to show that <span class="math display">\[
+N(D, M)=\frac{(D+M) !}{D ! M !}
+\]</span> This can be done by first proving that the result holds for <span class="math inline">\(M=0\)</span> and arbitrary <span class="math inline">\(D \geqslant 1,\)</span> then assuming that it holds at order <span class="math inline">\(M,\)</span> and hence showing that it holds at order <span class="math inline">\(M+1 .\)</span> Finally, make use of Stirling's approximation in the form <span class="math display">\[
+n ! \simeq n^{n} e^{-n}
+\]</span> for large <span class="math inline">\(n\)</span> to show that, for <span class="math inline">\(D \gg M,\)</span> the quantity <span class="math inline">\(N(D, M)\)</span> grows like <span class="math inline">\(D^{M}\)</span>, and for <span class="math inline">\(M \gg D\)</span> it grows like <span class="math inline">\(M^{D} .\)</span> Consider a cubic <span class="math inline">\((M=3)\)</span> polynomial in <span class="math inline">\(D\)</span> dimensions, and evaluate numerically the total number of independent parameters for (i) <span class="math inline">\(D=10\)</span> and (ii) <span class="math inline">\(D=100\)</span>, which correspond to typical small-scale and medium-scale machine learning applications.</p>
+<p><em>Solution</em></p>
+<p>The result (1.138) follows simply from summing up the coefficients at all order up to and including order <span class="math inline">\(M .\)</span> To prove <span class="math inline">\((1.139),\)</span> we first note that when <span class="math inline">\(M=0\)</span> the right hand side of (1.139) equals <span class="math inline">\(1,\)</span> which we know to be correct since this is the number of parameters at zeroth order which is just the constant offset in the polynomial. Assuming that (1.139) is correct at order <span class="math inline">\(M,\)</span> we obtain the following result at order <span class="math inline">\(M+1\)</span> <span class="math display">\[
+\begin{aligned}
+N(D, M+1) &amp;=\sum_{m=0}^{M+1} n(D, m) \\
+&amp;=\sum_{m=0}^{M} n(D, m)+n(D, M+1) \\
+&amp;=\frac{(D+M) !}{D ! M !}+\frac{(D+M) !}{(D-1) !(M+1) !} \\
+&amp;=\frac{(D+M) !(M+1)+(D+M) ! D}{D !(M+1) !} \\
+&amp;=\frac{(D+M+1) !}{D !(M+1) !}
+\end{aligned}
+\]</span> which is the required result at order <span class="math inline">\(M+1\)</span></p>
+<p>Now assume <span class="math inline">\(M \gg D .\)</span> Using Stirling's formula we have <span class="math display">\[
+\begin{aligned}
+n(D, M) &amp; \simeq \frac{(D+M)^{D+M} e^{-D-M}}{D ! M^{M} e^{-M}} \\
+&amp;=\frac{M^{D+M} e^{-D}}{D ! M^{M}}\left(1+\frac{D}{M}\right)^{D+M} \\
+&amp; \simeq \frac{M^{D} e^{-D}}{D !}\left(1+\frac{D(D+M)}{M}\right) \\
+&amp; \simeq \frac{(1+D) e^{-D}}{D !} M^{D}
+\end{aligned}
+\]</span> which grows like <span class="math inline">\(M^{D}\)</span> with <span class="math inline">\(M .\)</span> The case where <span class="math inline">\(D \gg M\)</span> is identical, with the roles of <span class="math inline">\(D\)</span> and <span class="math inline">\(M\)</span> exchanged. By numerical evaluation we obtain <span class="math inline">\(N(10,3)=286\)</span> and <span class="math inline">\(N(100,3)=176,851\)</span></p>
+<p><strong>1.18</strong></p>
+<p><em>Problem</em></p>
+<p><span class="math inline">\((\star \star)\)</span> www <span class="math inline">\(\quad\)</span> We can use the result (1.126) to derive an expression for the surface area <span class="math inline">\(S_{D},\)</span> and the volume <span class="math inline">\(V_{D},\)</span> of a sphere of unit radius in <span class="math inline">\(D\)</span> dimensions. To do this, consider the following result, which is obtained by transforming from Cartesian to polar coordinates <span class="math display">\[
+\prod_{i=1}^{D} \int_{-\infty}^{\infty} e^{-x_{i}^{2}} \mathrm{~d} x_{i}=S_{D} \int_{0}^{\infty} e^{-r^{2}} r^{D-1} \mathrm{~d} r
+\]</span> Using the definition (1.141) of the Gamma function, together with (1.126), evaluate both sides of this equation, and hence show that <span class="math display">\[
+S_{D}=\frac{2 \pi^{D / 2}}{\Gamma(D / 2)}
+\]</span> Next, by integrating with respect to radius from 0 to <span class="math inline">\(1,\)</span> show that the volume of the unit sphere in <span class="math inline">\(D\)</span> dimensions is given by <span class="math display">\[
+V_{D}=\frac{S_{D}}{D}
+\]</span> Finally, use the results <span class="math inline">\(\Gamma(1)=1\)</span> and <span class="math inline">\(\Gamma(3 / 2)=\sqrt{\pi} / 2\)</span> to show that (1.143) and (1.144) reduce to the usual expressions for <span class="math inline">\(D=2\)</span> and <span class="math inline">\(D=3\)</span>.</p>
+<p><em>Solution</em></p>
+<p>On the right-hand side of (1.142) we make the change of variables <span class="math inline">\(u=r^{2}\)</span> to give <span class="math display">\[
+\frac{1}{2} S_{D} \int_{0}^{\infty} e^{-u} u^{D / 2-1} \mathrm{~d} u=\frac{1}{2} S_{D} \Gamma(D / 2)
+\]</span> where we have used the definition (1.141) of the Gamma function. On the left hand side of (1.142) we can use (1.126) to obtain <span class="math inline">\(\pi^{D / 2}\)</span>. Equating these we obtain the desired result (1.143). The volume of a sphere of radius 1 in <span class="math inline">\(D\)</span> -dimensions is obtained by integration <span class="math display">\[
+V_{D}=S_{D} \int_{0}^{1} r^{D-1} \mathrm{~d} r=\frac{S_{D}}{D}
+\]</span> For <span class="math inline">\(D=2\)</span> and <span class="math inline">\(D=3\)</span> we obtain the following results <span class="math display">\[
+S_{2}=2 \pi, \quad S_{3}=4 \pi, \quad V_{2}=\pi a^{2}, \quad V_{3}=\frac{4}{3} \pi a^{3}
+\]</span></p>
+<p><strong>1.19</strong></p>
+<p><em>Problem</em></p>
+<p>Consider a sphere of radius <span class="math inline">\(a\)</span> in <span class="math inline">\(D\)</span> -dimensions together with the concentric hypercube of side <span class="math inline">\(2 a\)</span>, so that the sphere touches the hypercube at the centres of each of its sides. By using the results of Exercise <span class="math inline">\(1.18,\)</span> show that the ratio of the volume of the sphere to the volume of the cube is given by <span class="math display">\[
+\frac{\text { volume of sphere }}{\text { volume of cube }}=\frac{\pi^{D / 2}}{D 2^{D-1} \Gamma(D / 2)}
+\]</span> Now make use of Stirling's formula in the form <span class="math display">\[
+\Gamma(x+1) \simeq(2 \pi)^{1 / 2} e^{-x} x^{x+1 / 2}
+\]</span> which is valid for <span class="math inline">\(x \gg 1,\)</span> to show that, as <span class="math inline">\(D \rightarrow \infty,\)</span> the ratio (1.145) goes to zero. Show also that the ratio of the distance from the centre of the hypercube to one of the corners, divided by the perpendicular distance to one of the sides, is <span class="math inline">\(\sqrt{D}\)</span>, which therefore goes to <span class="math inline">\(\infty\)</span> as <span class="math inline">\(D \rightarrow \infty\)</span>. From these results we see that, in a space of high dimensionality, most of the volume of a cube is concentrated in the large number of corners, which themselves become very long 'spikes'!</p>
+<p><em>Solution</em></p>
+<p>The volume of the cube is <span class="math inline">\((2 a)^{D}\)</span>. Combining this with (1.143) and (1.144) we obtain (1.145). Using Stirling's formula (1.146) in (1.145) the ratio becomes, for large <span class="math inline">\(D\)</span>, <span class="math display">\[
+\frac{\text { volume of sphere }}{\text { volume of cube }}=\left(\frac{\pi e}{2 D}\right)^{D / 2} \frac{1}{D}
+\]</span> which goes to 0 as <span class="math inline">\(D \rightarrow \infty\)</span>. The distance from the center of the cube to the mid point of one of the sides is <span class="math inline">\(a,\)</span> since this is where it makes contact with the sphere. Similarly the distance to one of the corners is <span class="math inline">\(a \sqrt{D}\)</span> from Pythagoras' theorem. Thus the ratio is <span class="math inline">\(\sqrt{D}\)</span></p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2020/11/16/StyleGAN/" rel="prev" title="StyleGAN & StyleGAN2 论文解读">
+                  <i class="fa fa-chevron-left"></i> StyleGAN & StyleGAN2 论文解读
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+      
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      const activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      const commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+    </div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      
+
+      
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2021</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Weikang Qiu</span>
+</div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Symbols count total">14k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">13 mins.</span>
+  </span>
+</div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="Total Visitors">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv" style="display: none;">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="Total Views">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/muse/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <script src="//cdn.jsdelivr.net/npm/animejs@3.2.1/lib/anime.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/schemes/muse.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+  
+
+  
+      <script>
+  if (typeof MathJax === 'undefined') {
+    window.MathJax = {
+      tex: {
+        inlineMath: {'[+]': [['$', '$']]},
+        tags: 'ams'
+      },
+      options: {
+        renderActions: {
+          findScript: [10, doc => {
+            document.querySelectorAll('script[type^="math/tex"]').forEach(node => {
+              const display = !!node.type.match(/; *mode=display/);
+              const math = new doc.options.MathItem(node.textContent, doc.inputJax[0], display);
+              const text = document.createTextNode('');
+              node.parentNode.replaceChild(text, node);
+              math.start = {node: text, delim: '', n: 0};
+              math.end = {node: text, delim: '', n: 0};
+              doc.math.push(math);
+            });
+          }, '', false],
+          insertedScript: [200, () => {
+            document.querySelectorAll('mjx-container').forEach(node => {
+              const target = node.parentNode;
+              if (target.nodeName.toLowerCase() === 'li') {
+                target.parentNode.classList.add('has-jax');
+              }
+            });
+          }, '', false]
+        }
+      }
+    };
+    const script = document.createElement('script');
+    script.src = '//cdn.jsdelivr.net/npm/mathjax@3.1.2/es5/tex-mml-chtml.js';
+    script.defer = true;
+    document.head.appendChild(script);
+  } else {
+    MathJax.startup.document.state(0);
+    MathJax.typesetClear();
+    MathJax.texReset();
+    MathJax.typeset();
+  }
+</script>
+
+    
+
+  
+
+</body>
+</html>
